@@ -2,7 +2,7 @@
 #CPU frequency monitor
 cpufmon() {
 
-echo "Add '-a' for all CPU cores."
+echo "Use with '-a' to see all CPU cores."
 
 red="\e[91m"
 green="\e[92m"
