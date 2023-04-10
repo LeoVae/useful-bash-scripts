@@ -27,3 +27,16 @@ while true
     sleep 0.7 
 done
 }
+
+## PiHole - edit local DNS file, restart DNS if file updated
+function editdns {
+  findsum() {
+    sha1sum /etc/pihole/custom.list
+  }
+  before=$(findsum)
+  sudo vim /etc/pihole/custom.list
+  after=$(findsum)
+  if ! [[ $before == $after  ]]; then
+    pihole restartdns
+  fi
+}
